@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+require('@babel/register')({
+  presets:['@babel/preset-env','@babel/preset-react']
+})
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackConfig = require('../webpack.config'); 
+const compiler = webpack(webpackConfig);
+const express = require('express');
+const serverRouter = require('./server/serverRouter');
+const app = express();
+
+// 使用webpack-dev-middleware中间件
+app.use(
+  webpackDevMiddleware(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+  })
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 使用webpack-hot-middleware中间件
+app.use(webpackHotMiddleware(compiler));
+
+app.use(express.static('build'));
+app.use('*',serverRouter);
+
+app.listen(3001);
