@@ -22,6 +22,7 @@ app.use(
 app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static('build'));
+app.use(express.static('../static'));
 app.use('*',serverRouter);
 
 app.listen(3001);
