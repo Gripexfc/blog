@@ -2,7 +2,7 @@
  * @Author: fanchen 2837903280@qq.com
  * @Date: 2023-06-28 13:52:21
  * @LastEditors: fanchen 2837903280@qq.com
- * @LastEditTime: 2023-06-30 17:08:44
+ * @LastEditTime: 2023-07-01 23:41:30
  * @FilePath: \my-app\src\pages\login\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,7 +16,26 @@
 //  */
 import React,{useState} from "react";
 import http from "../../api/axios";
-import './index.css'
+import styled from 'styled-components';
+// import './index.css'
+
+const Img = styled.img`
+    width: 100%;
+    height: 100%;
+    position: relative;
+`
+
+const LoginDiv = styled.div`
+    width: 400px;
+    height: 300px;
+    border: 2px solid red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+`
 function Login() {
     const [textAccount, useTextAccount] = useState();
     const [textPassword, useTextPassword] = useState()
@@ -31,17 +50,11 @@ function Login() {
             username: textAccount,
             password: textPassword
         })
-        // http.post('/login',{
-        //     'key': '122549'
-        // }).then(res => {
-        //     console.log(res,'res');
-        // })
-        console.log('登录');
     }
     return (
         <div>
-            <img className="bg" src={require('../../../static/bg.jpg').default}></img>
-            <div className="login">
+            <Img src={require('../../../static/bg.jpg').default}></Img>
+            <LoginDiv>
                 <div>
                     <span>账号</span>
                     <input type="input" name="" value={textAccount} onChange={onAccount}/>
@@ -51,7 +64,7 @@ function Login() {
                     <input type="password" name="" value={textPassword} onChange={onPassword}/>
                 </div>
                 <button onClick={submit}>登录</button>
-            </div>
+            </LoginDiv>
         </div>
     )
 }
