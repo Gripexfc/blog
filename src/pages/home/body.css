@@ -1,0 +1,26 @@
+.article-left {
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
+
+.article-head {
+    border: 1px solid green;
+}
+.article-title {
+    border: 1px solid green;
+}
+.article-content {
+    border: 1px solid green;
+}
+.article-view {
+    border: 1px solid green;
+}
+
+.article-right {
+    border: 1px solid greenyellow;
+    width: 120px;
+    height: 80px;
+}

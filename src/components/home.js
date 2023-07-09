@@ -1,35 +1,78 @@
-/*
- * @Author: fanchen 2837903280@qq.com
- * @Date: 2023-06-18 20:15:46
- * @LastEditors: fanchen 2837903280@qq.com
- * @LastEditTime: 2023-06-26 21:03:21
- * @FilePath: \my-app\src\components\home.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
-import React from 'react';
-import { connect } from 'react-redux';
-import {addState} from '../store/actions'
-// import addState from '../store/actions'
-function Home({list,addState}) {
-    return (
-        <div>
-        <div>{list}</div>
-        <button onClick={addState}>Decrement</button>
-        </div>
-    )
+import React, { createContext, useState, useEffect, useContext } from 'react';
+
+// 创建一个上下文
+const KeepAliveContext = createContext();
+
+// KeepAliveProvider 组件，用于提供状态和生命周期控制
+function KeepAliveProvider({ children }) {
+  const [aliveComponent, setAliveComponent] = useState(null);
+
+  const keepAlive = (component) => {
+    setAliveComponent(component);
+  };
+
+  const releaseAlive = () => {
+    setAliveComponent(null);
+  };
+
+  useEffect(() => {
+    return () => {
+      setAliveComponent(null);
+    };
+  }, []);
+
+  return (
+    <KeepAliveContext.Provider value={{ keepAlive, releaseAlive }}>
+      {children}
+      {aliveComponent && <aliveComponent />}
+    </KeepAliveContext.Provider>
+  );
 }
 
-const mapStateToProps = state => ({
-    list: state.newsList,
-  });
-const mapDispatchToProps = dispatch => ({
-    // addState: () => dispatch({ type: 'CHANGE_LIST',list: [5] }),
-    addState() {
-        console.log(addState,'addState123');
-      dispatch(addState())
-    }
-  });
+// keepAlive 高阶组件 (Higher-Order Component)，用于包裹需要保持活动状态的组件
+export function keepAlive(Component) {
+  return function KeepAliveComponent(props) {
+    const { keepAlive, releaseAlive } = useContext(KeepAliveContext);
 
-export default connect(
-    mapStateToProps, mapDispatchToProps
-)(Home);
+    useEffect(() => {
+      keepAlive(Component);
+
+      return () => {
+        releaseAlive();
+      };
+    }, [keepAlive, releaseAlive]);
+
+    return <Component {...props} />;
+  };
+}
+
+// 使用示例
+function ComponentA() {
+  return <div>Component A</div>;
+}
+
+function ComponentB() {
+  return <div>Component B</div>;
+}
+
+const KeepAliveComponentA = keepAlive(ComponentA);
+const KeepAliveComponentB = keepAlive(ComponentB);
+
+function App() {
+  const [showComponentA, setShowComponentA] = useState(true);
+
+  const toggleComponent = () => {
+    setShowComponentA((prev) => !prev);
+  };
+
+  return (
+    <KeepAliveProvider>
+      <div>
+        <button onClick={toggleComponent}>Toggle Component</button>
+        {showComponentA ? <KeepAliveComponentA /> : <KeepAliveComponentB />}
+      </div>
+    </KeepAliveProvider>
+  );
+}
+
+export default App;

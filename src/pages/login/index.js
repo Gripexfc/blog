@@ -1,22 +1,8 @@
-/*
- * @Author: fanchen 2837903280@qq.com
- * @Date: 2023-06-28 13:52:21
- * @LastEditors: fanchen 2837903280@qq.com
- * @LastEditTime: 2023-07-01 23:41:30
- * @FilePath: \my-app\src\pages\login\index.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
-// /*
-//  * @Author: fanchen 2837903280@qq.com
-//  * @Date: 2023-06-28 13:52:21
-//  * @LastEditors: fanchen 2837903280@qq.com
-//  * @LastEditTime: 2023-06-29 14:15:46
-//  * @FilePath: \my-app\src\pages\login\index.js
-//  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
-//  */
+
 import React,{useState} from "react";
 import http from "../../api/axios";
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom'
 // import './index.css'
 
 const Img = styled.img`
@@ -37,6 +23,7 @@ const LoginDiv = styled.div`
     margin: auto;
 `
 function Login() {
+    const navigate = useNavigate()
     const [textAccount, useTextAccount] = useState();
     const [textPassword, useTextPassword] = useState()
     const onAccount = (e) => {
@@ -49,6 +36,9 @@ function Login() {
         http.post('/login', {
             username: textAccount,
             password: textPassword
+        }).then(res => {
+            navigate('/')
+            // window.location.hash = '/'
         })
     }
     return (
