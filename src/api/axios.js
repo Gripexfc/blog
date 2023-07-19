@@ -1,14 +1,18 @@
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 const instance = axios.create({
     baseURL: 'http://localhost:3002',
-    timeout: 1000,
-    headers: {'Content-Type': 'application/json'}
+    timeout: 5000, // 将超时时间调整为 5000 毫秒
+    withCredentials: true, 
+    headers: {'Content-Type': 'application/json'},
 });
 
 instance.interceptors.request.use(function (config) {
-    console.log('请求拦截');
     // 在发送请求之前做些什么
+    if (cookie.load('token')) {
+      config.headers.Authorization = cookie.load('token');
+    }
     return config;
   }, function (error) {
     // 对请求错误做些什么
@@ -18,8 +22,9 @@ instance.interceptors.request.use(function (config) {
 // 添加响应拦截器
 instance.interceptors.response.use(function (response) {
   if (response.config.url === "/login" && response.data.token) {
-    // document.cookie
+    cookie.save('token',response.data.token)
   }
+  
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
     return response;

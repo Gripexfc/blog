@@ -11,7 +11,7 @@ const util = (req) => {
         <StaticRouter location={req.path}>
             {
               routeList.map(element => {
-                return (<Route path={element.path} exact element={<element.component/>}></Route>)
+                return (<Route key={element.path} path={element.path} exact element={<element.component/>}></Route>)
               })
             }
         </StaticRouter>
@@ -26,8 +26,8 @@ const util = (req) => {
         </head>
         <body>
             <div id="root">${content}</div>
-            <script src="main.js"></script>
         </body>
+        <script defer src="main.js"></script>
         </html>
     `
 }

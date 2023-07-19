@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.body-content {
+    display: none !important;
+}
+
 .article-head {
     border: 1px solid green;
 }

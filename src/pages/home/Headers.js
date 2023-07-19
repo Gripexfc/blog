@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { Menu } from 'antd'
 import './head.css'
@@ -26,34 +26,40 @@ const HeadContent = styled.div`
 const items = [
     {
       label: '首页',
-      key: 'mail',
+      key: 'Home',
     //   icon: <MailOutlined />,
     },
     {
-      label: '个人中心',
-      key: 'app',
+      label: '热点',
+      key: 'IndividualCenter',
     //   icon: <AppstoreOutlined />,
     },
     {
         label: '聊天摸鱼',
-        key: 'mail',
+        key: 'Chat',
       //   icon: <MailOutlined />,
     },
     {
         label: '登录',
-        key: 'mail',
+        key: 'login',
       //   icon: <MailOutlined />,
     },
   ];
   
-function Headers() {
-    const [current, setCurrent] = useState('mail');
+function Headers(props) {
+    useEffect(()=> {
+      props.toggleTap('Home')
+    }, [])
+    const toggleTap = ({key}) => {
+      props.toggleTap(key)
+      console.log(key);
+    }
     return (
         <Header>
             <HeadContent>
-                <Img src={require('../../../static/bg.jpg').default}></Img>
+                <Img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></Img>
                 <div className='head-right'>
-                    <Menu items={items} mode="horizontal"></Menu>
+                    <Menu defaultSelectedKeys={['Home']} onClick={toggleTap} items={items} mode="horizontal"></Menu>
                     <Login></Login>
                 </div>
             </HeadContent>

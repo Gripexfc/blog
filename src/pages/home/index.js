@@ -4,6 +4,7 @@ import Headers from './Headers'
 import Body from './Body'
 import Footer from './Footer' 
 import styled from 'styled-components'
+import { useState } from 'react'
 
 const Layout = styled.div`
     max-width: 1200px;
@@ -11,11 +12,16 @@ const Layout = styled.div`
     margin: 0 auto;
 `
 function Home() {
+    const [ moduleName, setModuleName ] = useState('homePage')
+    const toggleTap = (name) => {
+        setModuleName(name);
+        console.log(moduleName,'moduleName');
+    }
     return (
         <div>
-            <Headers></Headers>
+            <Headers toggleTap={toggleTap}></Headers>
             <Layout>
-                <Body></Body>
+                <Body moduleName={moduleName}></Body>
             </Layout>
             <Footer></Footer>
         </div>

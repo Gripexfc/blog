@@ -12,7 +12,7 @@ class App extends Component {
           <Routes>
             {
               routeList.map(element => {
-                return (<Route path={element.path} exact element={<element.component/>}></Route>)
+                return (<Route key={element.path} path={element.path} exact element={<element.component/>}></Route>)
               })
             }
           </Routes>

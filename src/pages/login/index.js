@@ -33,17 +33,17 @@ function Login() {
         useTextPassword(e.target.value)
     }
     const submit = () => {
-        http.post('/login', {
+        http.post('/login', JSON.stringify({
             username: textAccount,
             password: textPassword
-        }).then(res => {
+        })).then(res => {
             navigate('/')
             // window.location.hash = '/'
         })
     }
     return (
         <div>
-            <Img src={require('../../../static/bg.jpg').default}></Img>
+            <Img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></Img>
             <LoginDiv>
                 <div>
                     <span>账号</span>
