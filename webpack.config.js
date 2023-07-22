@@ -1,6 +1,7 @@
 
 const path = require('path')
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const smp = new SpeedMeasurePlugin();
 //省略其它代码
 const webpackConfig = {
@@ -67,10 +68,10 @@ const webpackConfig = {
     hot: true,
   },
   plugins:[
-      // new HtmlWebpackPlugin({
-      //   filename: path.resolve(__dirname, 'build/index.html'),
-      //   template:  path.resolve(__dirname, './public/index.html'), 
-      // })
+      new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, 'build/index.html'),
+        template:  path.resolve(__dirname, './public/index.html'), 
+      })
   ]
 };
 

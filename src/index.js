@@ -26,4 +26,4 @@ app.use(express.static('build'));
 app.use(express.static('../static'));
 app.use('*',serverRouter);
 
-app.listen(3000);
+app.listen(3001);
