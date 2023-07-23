@@ -6,10 +6,14 @@ import Footer from './Footer'
 import styled from 'styled-components'
 import { useState } from 'react'
 
+const HomeStyle = styled.div`
+    background-color: #f2f3f5;
+`
+
 const Layout = styled.div`
     max-width: 1200px;
-    border: 1px solid red;
     margin: 0 auto;
+    background-color: #f2f3f5;
 `
 function Home() {
     const [ moduleName, setModuleName ] = useState('homePage')
@@ -18,13 +22,13 @@ function Home() {
         console.log(moduleName,'moduleName');
     }
     return (
-        <div>
+        <HomeStyle>
             <Headers toggleTap={toggleTap}></Headers>
             <Layout>
                 <Body moduleName={moduleName}></Body>
             </Layout>
-            <Footer></Footer>
-        </div>
+            {/* <Footer></Footer> */}
+        </HomeStyle>
     )
 }
 

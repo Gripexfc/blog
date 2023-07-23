@@ -14,7 +14,6 @@ const Img = styled.img`
 const LoginDiv = styled.div`
     width: 400px;
     height: 300px;
-    border: 2px solid red;
     position: absolute;
     left: 0;
     right: 0;

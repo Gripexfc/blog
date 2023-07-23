@@ -1,6 +1,7 @@
 
 import Login from '../pages/login/index'
 import Home from '../pages/home/index'
+import IndividualCenter from '../pages/views/individualCenter/individualCenter'
 
 export default [
     {
@@ -18,6 +19,10 @@ export default [
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/individualCenter',
+        component: IndividualCenter,
     }
 ];
 

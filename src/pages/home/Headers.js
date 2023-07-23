@@ -1,27 +1,8 @@
 
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { Menu } from 'antd'
-import './head.css'
-
-const Img = styled.img`
-    width: 100px;
-    height: 50px;
-`
-const Header = styled.div`
-    width: 100%;
-    height: 100px;
-    border: 1px solid red;
-`
-const HeadContent = styled.div`
-    margin: 0 auto;
-    border: 1px solid yellow;
-    height: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
 
 const items = [
     {
@@ -30,20 +11,20 @@ const items = [
     //   icon: <MailOutlined />,
     },
     {
-      label: '热点',
-      key: 'IndividualCenter',
+      label: '讨论区',
+      key: 'Discuss',
     //   icon: <AppstoreOutlined />,
     },
     {
-        label: '聊天摸鱼',
+        label: '休闲聊天',
         key: 'Chat',
       //   icon: <MailOutlined />,
     },
-    {
-        label: '登录',
-        key: 'login',
-      //   icon: <MailOutlined />,
-    },
+  //   {
+  //     label: '个人中心',
+  //     key: 'IndividualCenter',
+  //   //   icon: <MailOutlined />,
+  // } ,
   ];
   
 function Headers(props) {
@@ -57,9 +38,11 @@ function Headers(props) {
     return (
         <Header>
             <HeadContent>
-                <Img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></Img>
+                <div className='head-left'>
+                  <Img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></Img>
+                  <Menu defaultSelectedKeys={['Home']} onClick={toggleTap} items={items} mode="horizontal"></Menu>
+                </div>
                 <div className='head-right'>
-                    <Menu defaultSelectedKeys={['Home']} onClick={toggleTap} items={items} mode="horizontal"></Menu>
                     <Login></Login>
                 </div>
             </HeadContent>
@@ -68,7 +51,72 @@ function Headers(props) {
 }
 
 function Login() {
-
+  const navigate = useNavigate()
+  const loginClick = () => {
+    navigate('/login')
+  }
+  const logionOutClick = () => {
+    navigate('/login')
+  }
+  return (
+    <LoginStyle>
+      <div className='login-button' onClick={loginClick}>登录</div>
+      <div className='login-line'></div>
+      <div className='login-inner-button' onClick={loginClick}>注册</div>
+    </LoginStyle>
+  )
 }
+
+const Img = styled.img`
+    width: 100px;
+    height: 50px;
+`
+const Header = styled.div`
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+`
+const HeadContent = styled.div`
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .head-left {
+      display: flex;
+      justify-content: space-between;
+    }
+    .head-right {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+`
+
+const LoginStyle = styled.div`
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: #b3d5ff;
+  color: #007fff;
+  margin-right: 60px;
+  cursor: pointer;
+  .login-line {
+    background-color: #b3d5ff;
+    height: 8px;
+    width: 1px;
+    margin: 0 6px;
+  }
+  .login-button {
+
+  }
+
+  .login-inner-button {
+
+  }
+`
 
 export default Headers;
