@@ -75,6 +75,8 @@ const Header = styled.div`
     width: 100%;
     height: 80px;
     background-color: #ffffff;
+    position: fixed;
+    top:0;
 `
 const HeadContent = styled.div`
     margin: 0 auto;

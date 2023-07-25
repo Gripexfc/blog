@@ -12,7 +12,7 @@ const HomeStyle = styled.div`
 
 const Layout = styled.div`
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 100px auto;
     background-color: #f2f3f5;
 `
 function Home() {
