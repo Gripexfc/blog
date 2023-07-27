@@ -48,6 +48,7 @@ select {
 
 html {
   box-sizing: border-box;
+  background: #f2f3f5;
 }
 
 *, *::before, *::after {

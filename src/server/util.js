@@ -22,15 +22,14 @@ const util = (req) => {
         <html>
         <head>
             <title>ssr</title>
-            <link href='../style/default.css' />
         </head>
         <body>
             <div id="root">${content}</div>
+            <script defer src="main.js"></script>
         </body>
-        <script defer src="main.js"></script>
         </html>
     `
 }
 
 
-export default util;
+module.exports = util;
