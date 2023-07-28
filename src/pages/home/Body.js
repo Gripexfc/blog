@@ -7,7 +7,7 @@ import Chat from '../views/chat/chat'
 
 const BodyStyle = styled.div`
     min-height: 800px;
-    padding: 0 10px;
+    margin: 0 10px;
     background-color: #ffffff;
     .body-content {
         display: none !important;
@@ -98,7 +98,7 @@ function Home(props){
                 </div>
                 <div className='article-title'>在Vue项目里使用ECharts图标库</div>
                 <div className='article-content'>ECharts是一个JavaScript实现的开源图标库，能兼容绝大多数浏览器（IE8+），底层依赖ZRender（一个轻量级的Canvas类库），能高度个性化定制数据可视化图标。</div>
-                <div className='article-view'>点赞呀</div>
+                <div className='article-view'>点赞*评论*浏览量</div>
             </div>
             <div className='article-right'>
                 <img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></img>

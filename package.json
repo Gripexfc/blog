@@ -17,6 +17,7 @@
     "html-webpack-plugin": "^5.5.3",
     "i": "^0.3.7",
     "ignore-styles": "^5.0.1",
+    "md-editor-rt": "^4.2.2",
     "npm": "^9.8.1",
     "react": "^18.2.0",
     "react-cookies": "^0.1.1",

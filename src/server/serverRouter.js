@@ -1,6 +1,6 @@
 
 
-import util from './util';
+const util = require('./util');
 const express = require('express')
 const router = express.Router();
 
