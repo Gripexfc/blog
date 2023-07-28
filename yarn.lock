@@ -1524,7 +1524,11 @@
   "resolved" "https://registry.npmjs.org/@codemirror/state/-/state-6.2.1.tgz"
   "version" "6.2.1"
 
+<<<<<<< Updated upstream
 "@codemirror/view@^6.0.0", "@codemirror/view@^6.2.2":
+=======
+"@codemirror/view@^6.0.0", "@codemirror/view@^6.2.2", "@codemirror/view@^6.6.0":
+>>>>>>> Stashed changes
   "integrity" "sha512-chNgR8H7Ipx7AZUt0+Kknk7BCow/ron3mHd1VZdM7hQXiI79+UlWqcxpCiexTxZQ+iSkqndk3HHAclJOcjSuog=="
   "resolved" "https://registry.npmjs.org/@codemirror/view/-/view-6.15.3.tgz"
   "version" "6.15.3"

@@ -20,11 +20,11 @@ const items = [
         key: 'Chat',
       //   icon: <MailOutlined />,
     },
-  //   {
-  //     label: '个人中心',
-  //     key: 'IndividualCenter',
-  //   //   icon: <MailOutlined />,
-  // } ,
+    {
+      label: '个人中心',
+      key: 'IndividualCenter',
+    //   icon: <MailOutlined />,
+  } ,
   ];
   
 function Headers(props) {
@@ -58,11 +58,17 @@ function Login() {
   const logionOutClick = () => {
     navigate('/login')
   }
+  const personalCenterClick = () => {
+    navigate('/personalCenter')
+  }
   return (
     <LoginStyle>
       <div className='login-button' onClick={loginClick}>登录</div>
       <div className='login-line'></div>
       <div className='login-inner-button' onClick={loginClick}>注册</div>
+      <div className='avatar-wrapper' onClick={personalCenterClick}>
+        <Img src="https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342"></Img>
+      </div>
     </LoginStyle>
   )
 }
@@ -118,6 +124,14 @@ const LoginStyle = styled.div`
 
   .login-inner-button {
 
+  }
+  .avatar-wrapper {
+    border-radius: 100%;
+    margin-left: 10px;
+    Img {
+      width: 50px;
+      border-radius: 100%;
+    }
   }
 `
 

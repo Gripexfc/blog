@@ -34,6 +34,16 @@ const PostEditorStyle = styled.div`
       }
     }
   }
+=======
+
+const PostEditorStyle = styled.div`
+  .md-editor-dark {
+    --md-bk-color: #333 !important;
+  }
+  div#md-editor-rt {
+    height: 100vh;
+  }
+>>>>>>> Stashed changes
 `
 
 const PostEditor = () => {
@@ -41,6 +51,7 @@ const PostEditor = () => {
 
   return (
     <PostEditorStyle>
+<<<<<<< Updated upstream
       <div className='post_editor_head'>
         <Input placeholder="请输入标题..." />
         <div className='post_editor_right'>
@@ -48,6 +59,8 @@ const PostEditor = () => {
           <Avatar size={32} icon="朝阳" />
         </div>
       </div>
+=======
+>>>>>>> Stashed changes
       <MdEditor modelValue={text} onChange={setText}/>
     </PostEditorStyle>
   );
