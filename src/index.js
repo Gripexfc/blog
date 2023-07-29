@@ -11,7 +11,7 @@ const compiler = webpack(webpackConfig);
 const express = require('express');
 const serverRouter = require('./server/serverRouter');
 const app = express();
-
+// test
 // 使用webpack-dev-middleware中间件
 app.use(
   webpackDevMiddleware(compiler, {
