@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Chat from '../views/chat/chat'
 
 const BodyStyle = styled.div`
-    min-height: 800px;
+    /* min-height: 800px; */
     margin: 0 10px;
     background-color: #ffffff;
     .body-content {
@@ -42,8 +42,8 @@ const ArticleList = styled.div`
             margin-bottom: 8px;
             font-weight: 600;
             font-size: 16px;
-            line-height: 24px;
             color: #252933;
+            line-height: 24px;
         }
         .article-content {
             margin-bottom: 8px;
