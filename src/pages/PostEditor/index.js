@@ -37,18 +37,20 @@ const PostEditorStyle = styled.div`
 `
 
 const PostEditor = () => {
-  const [text, setText] = useState('# Hello Editor');
-
+  const [text, setText] = useState();
+  const submite = () => {
+    console.log(text,'text');
+  }
   return (
     <PostEditorStyle>
       <div className='post_editor_head'>
         <Input placeholder="请输入标题..." />
         <div className='post_editor_right'>
-          <Button type="primary">发布</Button>
+          <Button type="primary" onClick={submite}>发布</Button>
           <Avatar size={32} icon="朝阳" />
         </div>
       </div>
-      <MdEditor modelValue={text} onChange={setText}/>
+      <MdEditor noPrettier modelValue={text} onChange={setText}/>
     </PostEditorStyle>
   );
 };

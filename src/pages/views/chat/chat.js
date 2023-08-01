@@ -36,7 +36,7 @@ const ChatStyle = styled.div`
                     display: flex;
                     flex-direction: column;
                     margin-left: 12px;
-                    text {
+                    p {
                         font-weight: 600;
                         font-size: 16px;
                         color: #252933;
@@ -99,13 +99,13 @@ function ChatApp() {
                         <img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></img>
                         <div className='userChatInfo-content'>
                             <span>未知用户</span>
-                            <text>谁tm六点半下班啊 </text>
+                            <p>谁tm六点半下班啊 </p>
                         </div>
                    </div>
                    <div className='userChatInfo userChatInfo-right'>
                         <div className='userChatInfo-content'>
                             {/* <span>朝阳</span> */}
-                            <text>谁tm六点半下班啊 </text>
+                            <p>谁tm六点半下班啊 </p>
                         </div>
                         <img src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></img>
                    </div>
