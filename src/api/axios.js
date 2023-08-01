@@ -10,6 +10,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
+    console.log(config,'---------');
     if (cookie.load('token')) {
       config.headers.Authorization = cookie.load('token');
     }
@@ -21,7 +22,8 @@ instance.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 instance.interceptors.response.use(function (response) {
-  if (response.config.url === "/login" && response.data.token) {
+  console.log(response.config,'response.config');
+  if (response.config.url === "/blogUsers/login" && response.data.token) {
     cookie.save('token',response.data.token)
   }
   

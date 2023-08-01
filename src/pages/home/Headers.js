@@ -20,11 +20,11 @@ const items = [
         key: 'Chat',
       //   icon: <MailOutlined />,
     },
-    {
-      label: '个人中心',
-      key: 'IndividualCenter',
-    //   icon: <MailOutlined />,
-  } ,
+  //   {
+  //     label: '个人中心',
+  //     key: 'IndividualCenter',
+  //   //   icon: <MailOutlined />,
+  // } ,
   ];
   
 function Headers(props) {
