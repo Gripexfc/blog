@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import {useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
 import Chat from '../views/chat/chat'
+import Publish from '../views/discuss/publish'
 
 const BodyStyle = styled.div`
     /* min-height: 800px; */
@@ -109,7 +110,9 @@ function Home(props){
 //讨论区
 function Discuss(props) {
     return (
-        <div className={'body-content' + (props.className === 'Discuss' ? 'active' : '')}>2</div>
+        <div className={'body-content' + (props.className === 'Discuss' ? 'active' : '')}>
+            <Publish></Publish>
+        </div>
     )
 } 
 // 聊天页
