@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import {useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
 import Chat from '../views/chat/chat'
+import Publish from '../views/discuss/publish'
 
 const BodyStyle = styled.div`
     /* min-height: 800px; */
@@ -109,18 +110,9 @@ function Home(props){
 //讨论区
 function Discuss(props) {
     return (
-        <div v-html="撒旦撒旦<u>******</u>撒旦撒旦## 大撒大撒**> ****
-
-        大苏打撒旦啊倒萨
-        ###### 实打实打算
-        ~~撒大苏打~~
-        *撒旦撒旦*
-        <sub>撒大苏打</sub>
-        <sup>啊实打实大苏打的期望</sup>
-        - [ ] 撒旦撒大苏打是
-        - [ ] 撒旦阿达as撒旦
-        - [ ] asd a的
-        - [ ] [撒大苏打](阿松大啊-------)" className={'body-content' + (props.className === 'Discuss' ? 'active' : '')}>2</div>
+        <div className={'body-content' + (props.className === 'Discuss' ? 'active' : '')}>
+            <Publish></Publish>
+        </div>
     )
 } 
 // 聊天页
