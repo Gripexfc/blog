@@ -27,7 +27,7 @@ export default [
         component: PostEditor,
     },
     {
-        path: '/article',
+        path: '/article/:id',
         component: Article,
     },
     {

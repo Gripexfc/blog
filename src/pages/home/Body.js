@@ -86,7 +86,7 @@ function Body(props) {
 function Home(props){
     const navigate = useNavigate()
     const article = (item) => {
-        navigate('/individualCenter')
+        navigate(`/article/64ca4d8e52d80d2c5b1ba5dc`);
     }
     return (
         <ArticleList onClick={article} className={'body-content' + (props.className === 'Home' ? 'active' : '')} >

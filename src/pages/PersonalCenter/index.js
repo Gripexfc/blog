@@ -52,7 +52,7 @@ function PersonalCenter() {
                     </div>
                     <div className='avatar-info'>
                         <div>
-                            <h1>姓甚名谁</h1>
+                            <h1>姓甚re名谁</h1>
                         </div>
                         <div>
                             <div>
