@@ -7,6 +7,7 @@
     "axios": "^1.4.0",
     "express": "^4.18.2",
     "ignore-styles": "^5.0.1",
+    "markdown-it": "^13.0.1",
     "md-editor-rt": "^4.2.2",
     "react": "^18.2.0",
     "react-cookies": "^0.1.1",
