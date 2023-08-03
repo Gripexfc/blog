@@ -29,15 +29,6 @@ const LoginStyle = styled.div`
     }
 `
 
-const mapStateToProps = (state) => ({ userState: state.userState })
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-      // dispatch 普通的 action
-      setCookToken
-    }
-  }
-
 function Login(props) {
     const userState = useSelector(state => state.user);
     const dispatch = useDispatch();
@@ -89,14 +80,6 @@ function Login(props) {
         </LoginStyle>
     )
 }
-
-// export default connect(
-//     userState => ({userState:userState}),
-//     //mapDispatchToProps的简写（注意：这里会自动包裹dispath）
-//     {
-//         setCookToken,
-//     }
-// )(Login)
 
 
 export default Login

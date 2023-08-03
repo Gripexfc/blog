@@ -26,6 +26,7 @@ const util = (req) => {
         <body>
             <div id="root">${content}</div>
             <script defer src="main.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/jcode-md"></script>
         </body>
         </html>
     `
