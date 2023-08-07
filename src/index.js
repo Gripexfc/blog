@@ -1,8 +1,11 @@
 
 require('ignore-styles')
+const moduleAlias = require('module-alias');
+moduleAlias.addAlias('@', __dirname); // 使用当前目录作为根目录
 require('@babel/register')({
   presets:['@babel/preset-env','@babel/preset-react']
 })
+
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
