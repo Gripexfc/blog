@@ -1,9 +1,11 @@
 
-import Login from '../pages/login/index'
-import Home from '../pages/home/index'
-import PostEditor from '../pages/PostEditor/index'
-import PersonalCenter from '../pages/PersonalCenter/index'
-import Article from '../pages/views/article/index'
+import Login from '@/pages/login/index'
+// const Login = require('@/pages/login/index');
+
+import Home from '@/pages/home/index'
+import PostEditor from '@/pages/PostEditor/index'
+import PersonalCenter from '@/pages/PersonalCenter/index'
+import Article from '@/pages/views/article/index'
 
 export default [
     {

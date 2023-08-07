@@ -5,7 +5,7 @@ import http from "../../api/axios";
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom'
 import { Input,Button,Form } from 'antd'
-import { setCookToken } from '../../store/actions'
+import { setCookToken } from '@/store/actions'
 import cookie from 'react-cookies';
 // import './index.css'
 
