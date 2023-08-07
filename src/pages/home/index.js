@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Headers from './Headers'
+import Header from './Header'
 import Body from './Body'
 import Footer from './Footer' 
 import styled from 'styled-components'
@@ -12,7 +12,7 @@ const HomeStyle = styled.div`
 
 const Layout = styled.div`
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 70px auto;
     background-color: #f2f3f5;
 `
 function Home() {
@@ -23,7 +23,7 @@ function Home() {
     }
     return (
         <HomeStyle>
-            <Headers toggleTap={toggleTap}></Headers>
+            <Header toggleTap={toggleTap}></Header>
             <Layout>
                 <Body moduleName={moduleName}></Body>
             </Layout>

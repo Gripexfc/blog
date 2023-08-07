@@ -4,6 +4,7 @@ import { Menu } from 'antd'
 import github from '../../assets/personalCenterImg/github_.png'
 import global from '../../assets/personalCenterImg/global_.png'
 import weibo from '../../assets/personalCenterImg/weibo_.png'
+// import Header from '../home/Header'
 
 const menuList = [
     {
@@ -17,19 +18,19 @@ const menuList = [
     //   icon: <AppstoreOutlined />,
     },
     {
-        label: '收藏集',
-        key: 'Collection',
-      //   icon: <MailOutlined />,
+      label: '收藏集',
+      key: 'Collection',
+    //   icon: <MailOutlined />,
     },
     {
       label: '关注',
       key: 'Follows',
-        //   icon: <MailOutlined />,
+    //   icon: <MailOutlined />,
     } ,
     {
-        label: '赞',
-        key: 'Likes',
-        //   icon: <MailOutlined />,
+      label: '赞',
+      key: 'Likes',
+    //   icon: <MailOutlined />,
     }
   ];
 
@@ -44,89 +45,101 @@ function PersonalCenter() {
         console.log(key);
     }
     return (
-        <PersonalCenterContent>
-            <LeftPanel>
-                <Avatar>
-                    <div className='avatar-img'>
-                        <IMG src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></IMG>
-                    </div>
-                    <div className='avatar-info'>
-                        <div>
-                            <h1>姓甚re名谁</h1>
+        <PersonalContent>
+            {/* <Header></Header> */}
+            <PersonalCenterContent>
+                <LeftPanel>
+                    <Avatar>
+                        <div className='avatar-img'>
+                            <IMG src='https://img0.baidu.com/it/u=2776253752,4284333942&fm=253&fmt=auto&app=138&f=JPEG?w=599&h=342'></IMG>
                         </div>
-                        <div>
+                        <div className='avatar-info'>
                             <div>
-                                <div>
-                                    <h1>职业</h1>
-                                </div>
-                                <div>
-                                    <h1>座右铭</h1>
-                                </div>
+                                <h1>姓甚名谁</h1>
                             </div>
                             <div>
-                                <h1>设置按钮</h1>
+                                <div>
+                                    <div>
+                                        <h1>职业</h1>
+                                    </div>
+                                    <div>
+                                        <h1>座右铭</h1>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1>设置按钮</h1>
+                                </div>
                             </div>
                         </div>
+                    </Avatar>
+                    <div className='follows'>
+                        <div>
+                            <div>关注了</div>
+                            <div>18</div>
+                        </div>
+                        <div>
+                            <div>关注者</div>
+                            <div>0</div>
+                        </div>
                     </div>
-                </Avatar>
-                <div className='follows'>
-                    <div>
-                        <div>关注了</div>
-                        <div>18</div>
+                    <div className='collection-list'>
+                        <div>
+                            收藏集
+                            <span>13</span>
+                        </div>
+                        <div>
+                            关注标签
+                            <span>3</span>
+                        </div>
+                        <div>
+                            加入于
+                            <span>2021-12-16</span>
+                        </div>
                     </div>
-                    <div>
-                        <div>关注者</div>
-                        <div>0</div>
+                    <div className='bottom-link'>
+                        <div>
+                            <IMG src={weibo}></IMG>
+                            <IMG src={github}></IMG>
+                            <IMG src={global}></IMG>
+                        </div>
                     </div>
-                </div>
-                <div className='collection-list'>
-                    <div>
-                        收藏集
-                        <span>13</span>
-                    </div>
-                    <div>
-                        关注标签
-                        <span>3</span>
-                    </div>
-                    <div>
-                        加入于
-                        <span>2021-12-16</span>
-                    </div>
-                </div>
-                <div className='bottom-link'>
-                    <div>
-                        <IMG src={weibo}></IMG>
-                        <IMG src={github}></IMG>
-                        <IMG src={global}></IMG>
-                    </div>
-                </div>
-            </LeftPanel>
-            <div className='space-div'></div>
-            <RightPanel>
-                <Menu defaultSelectedKeys={['Home']} onClick={toggleTap} items={menuList} mode="horizontal"></Menu>
-            </RightPanel>
-        </PersonalCenterContent>
+                </LeftPanel>
+                <div className='space-div'></div>
+                <RightPanel>
+                    <Menu defaultSelectedKeys={['Home']} onClick={toggleTap} items={menuList} mode="horizontal"></Menu>
+                </RightPanel>
+            </PersonalCenterContent>
+        </PersonalContent>
     )
 }
 
+const PersonalContent = styled.div`
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: #f2f3f5;
+    // position: fixed;
+    // top: 70px;
+`
+
 const PersonalCenterContent = styled.div`
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
-    padding: 15px 30px;
+    // padding: 15px 30px;
     .space-div {
         flex: 0.05;
     }
 `
 
 const LeftPanel = styled.div`
-    flex: 1;
+    flex: 1.3;
     background-color: #fff;
     position: relative;
     .follows {
         height: 50px;
         display: flex;
         text-align: center;
+        cursor: pointer;
         div {
             flex: 1;
         }
@@ -160,6 +173,7 @@ const LeftPanel = styled.div`
             width: 16px;
             height: 16px;
             margin: auto;
+            cursor: pointer;
         }
     }
 `

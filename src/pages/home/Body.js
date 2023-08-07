@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
 import Chat from '../views/chat/chat'
 import Publish from '../views/discuss/publish'
+import PersonalCenter from '../PersonalCenter/index'
 
 const BodyStyle = styled.div`
     /* min-height: 800px; */
@@ -79,6 +80,7 @@ function Body(props) {
             <Home className={props.moduleName}></Home>
             <Discuss className={props.moduleName}></Discuss>
             <ChatView className={props.moduleName}></ChatView>
+            <PersonalCenterView className={props.moduleName}></PersonalCenterView>
         </BodyStyle>
     )
 }
@@ -120,6 +122,13 @@ function ChatView(props) {
     return (
         <div className={'body-content' + (props.className === 'Chat' ? 'active' : '')}>
             <Chat></Chat>
+        </div>
+    )
+}// 聊天页
+function PersonalCenterView(props) {
+    return (
+        <div className={'body-content' + (props.className === 'PersonalCenter' ? 'active' : '')}>
+            <PersonalCenter></PersonalCenter>
         </div>
     )
 }
