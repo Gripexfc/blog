@@ -11,6 +11,11 @@ const webpackConfig = {
     path: path.resolve(__dirname, 'build'),
     filename: 'main.js'
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // 根据你的项目结构调整路径
+    },
+  },
   cache: {
     type: 'memory', // 或者 'filesystem'
   },
